@@ -1,11 +1,13 @@
 # main.py
 from src.config.config import llm_config
 import sys
-from src.agents.agents import planner , finance_agent , code_writer_agent , code_executor_agent, user_proxy
+from src.agents.agents import planner , finance_agent , code_writer_agent , code_executor_agent, user_proxy, executor
 from src.prompts.prompts import task
 import autogen
 
 def main():
+    
+
     intro_message = "Speak to EasyRealEstate by stating your Italian real estate expectations. For example, the region, size of investment, and any other details: "
     user_input = input(intro_message)
     
