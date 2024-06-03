@@ -1,0 +1,6 @@
+langchain
+langchain-community
+azure-ai-documentintelligence
+unstructured[all-docs]
+openbb-agents
+pyautogen

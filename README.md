@@ -2,9 +2,53 @@
 
 Positonic is a specialized agent that helps you find perfectly segmented real estate deals and investment properties in Italy .
 
+## Installation
 
+#### Usage Instructions
 
-### Refs :
+1. **Clone the Repository**
+
+   Clone the repository to a local machine:
+
+   ```sh
+   git clone https://github.com/tonic/investinitaly
+   cd investinitaly
+   ```
+
+2. **Set Up the Environment**
+
+   Run the setup script to create and activate the virtual environment, and install the dependencies:
+
+   - On Windows:
+
+     ```bash
+     .\setup_env.bat
+     ```
+
+   - On macOS/Linux:
+
+     ```bash
+     chmod +x setup_env.sh
+     ./setup_env.sh
+     ```
+
+   then
+
+   - On Windows:
+
+      ```sh
+      venv\Scripts\activate
+      ```
+
+    - On macOS/Linux:
+
+      ```sh
+      source venv/bin/activate
+      ```
+
+Once activated, you should see the name of your virtual environment in the command prompt, indicating that you are now working within the virtual environment.
+
+### Refs:
 
 - Open BB Dev
   - https://hackathon.openbb.dev/docs#/equity/equity_fundamental_metrics
@@ -25,4 +69,3 @@ Positonic is a specialized agent that helps you find perfectly segmented real es
 
 - FinOS
   - https://cdm.finos.org/docs/event-model/
-
