@@ -48,6 +48,14 @@ Positonic is a specialized agent that helps you find perfectly segmented real es
 
 Once activated, you should see the name of your virtual environment in the command prompt, indicating that you are now working within the virtual environment.
 
+3. **Installation Problems** 
+
+Sometimes installation can fail because of `openbb-agents`. If this happens , additionally install it using the following command : 
+
+```bash
+pip install --no-cache-dir openbb-agents
+```
+
 ### Refs:
 
 - Open BB Dev

@@ -22,3 +22,14 @@ finance_agent_system_message = f"you are a senior Finance Analyst expert in real
     "4. produce a real estate analysis based on economic conditions"\
     "5. forecast lifetime ownership costs based on maintenance, location and market factors" \
     "6. Propose and justify real estate purchase , explain your answer , produce complete answer in markdown format:"""
+
+planner_system_message = f"Given a task, please determine "\
+    "what information is needed to complete the task. "\
+    "Please note that the information will all be retrieved using"\
+    " Python code. Please only suggest information that can be "\
+    "retrieved using Python code. "\
+    "After each step is done by others, check the progress and "\
+    "instruct the remaining steps. If a step fails, try to "\
+    "workaround"""
+
+task = "based on the above , i would like to purchase real estate. produce a complete investment proposal:"

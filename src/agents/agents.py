@@ -1,9 +1,29 @@
-from autogen import register_function
-from autogen import ConversableAgent, AssistantAgent
+# ./src/agents/agents
+
+from autogen import ConversableAgent
 from autogen.coding import LocalCommandLineCodeExecutor
 from src.plugins.tools import openbb , plot_stock_prices , get_stock_prices , italianhousing
 from src.config.config import llm_config
-from src.prompts.prompts import code_writer_agent_system_message, finance_agent_system_message
+from src.prompts.prompts import code_writer_agent_system_message, finance_agent_system_message, planner_system_message
+
+user_proxy = ConversableAgent(
+    name="Admin",
+    system_message="Give the task, and send "
+    "instructions to planner to define the real-estate investment strategy",
+    code_execution_config=False,
+    llm_config=llm_config,
+    human_input_mode="ALWAYS",
+)
+
+planner = ConversableAgent(
+    name="Planner",
+    system_message=planner_system_message,
+    description="Planner. Given a task, determine what "
+    "information is needed to complete the task. "
+    "After each step is done by others, check the progress and "
+    "instruct the remaining steps",
+    llm_config=llm_config,
+)
 
 executor = LocalCommandLineCodeExecutor(
     timeout=3600,

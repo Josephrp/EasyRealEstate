@@ -1,3 +1,4 @@
+import openbb
 from openbb_agents.agent import openbb_agent
 import os
 from dotenv import load_dotenv
