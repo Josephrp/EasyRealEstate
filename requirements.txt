@@ -2,5 +2,8 @@ langchain
 langchain-community
 azure-ai-documentintelligence
 unstructured[all-docs]
+langchain-chroma
+chromadb
 openbb-agents
 pyautogen
+python-dotenv

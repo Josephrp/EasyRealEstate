@@ -1,4 +1,15 @@
 from openbb_agents.agent import openbb_agent
+import os
+from dotenv import load_dotenv
+from src.memory.mem import Upsert, retrieve_query
+
+load_dotenv()
+
+
+def italianhousing(query):
+    # Retrieve documents using the callable function
+    result = retrieve_query(query)
+    return result
 
 def openbb(query):
     result = openbb_agent(query)

@@ -10,3 +10,5 @@ makeaplot = f"Today is {today}. "\
 
 code_writer_agent_system_message = code_writer_agent.system_message
 code_writer_agent_system_message += executor.format_functions_for_prompt()
+
+finance_agent_system_message = 
