@@ -5,5 +5,6 @@ unstructured[all-docs]
 langchain-chroma
 chromadb
 openbb-agents
+yfinance
 pyautogen
 python-dotenv

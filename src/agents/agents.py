@@ -32,7 +32,7 @@ finance_agent = ConversableAgent(
     name="finance_agent",
     system_message=finance_agent_system_message,
     llm_config=llm_config,
-    code_execution_config=False,
+    code_execution_config={"executor": executor},
     functions=[italianhousing, openbb],
     human_input_mode="NEVER",
 )
