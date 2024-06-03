@@ -4,7 +4,13 @@ Positonic is a specialized agent that helps you find perfectly segmented real es
 
 ## Installation
 
-#### Usage Instructions
+### Set your OpenAI API Key
+
+edit the `./src/config/config.py` file using a text editor and replace your api_key_here with your api key (keep the quotes!)
+
+`llm_config = {"model": "gpt-4-turbo", "api_key": "your_api_key_here" }`
+
+### Usage Instructions
 
 1. **Clone the Repository**
 

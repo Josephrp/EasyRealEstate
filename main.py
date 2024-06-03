@@ -4,6 +4,12 @@ import sys
 from src.agents.agents import planner , finance_agent , code_writer_agent , code_executor_agent, user_proxy, executor
 from src.prompts.prompts import task
 import autogen
+from dotenv import load_dotenv
+import os
+
+load_dotenv('./src/config/.env')
+
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 def main():
     
