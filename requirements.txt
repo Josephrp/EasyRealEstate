@@ -10,3 +10,6 @@ yfinance
 pyautogen
 python-dotenv
 xgboost
+markdownify
+pandas
+einops
