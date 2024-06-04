@@ -10,6 +10,8 @@ edit the `./src/config/config.py` file using a text editor and replace your api_
 
 `llm_config = {"model": "gpt-4-turbo", "api_key": "your_api_key_here" }`
 
+then edit the `./src/config/.env.example` file using a text editor and replace your api_key_here with your api key (no quotes) !
+
 ### Usage Instructions
 
 1. **Clone the Repository**
@@ -46,7 +48,7 @@ edit the `./src/config/config.py` file using a text editor and replace your api_
       venv\Scripts\activate
       ```
 
-    - On macOS/Linux:
+   - On macOS/Linux:
 
       ```sh
       source venv/bin/activate

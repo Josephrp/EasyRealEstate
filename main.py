@@ -8,10 +8,14 @@ from dotenv import load_dotenv
 import os
 from src.memory.mem import Upsert, retrieve_query
 from autogen.cache import Cache
+from src.memory.mem import load_env_file
 
-load_dotenv('./src/config/.env')
+# # Load environment variables from .env file using os library only
+# load_env_file('./src/config/.env')
 
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+# # Ensure the OPENAI_API_KEY is set
+# if "OPENAI_API_KEY" not in os.environ:
+#     raise ValueError("OPENAI_API_KEY not found in environment variables.")
 
 def main():
     

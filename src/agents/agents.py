@@ -48,7 +48,7 @@ executor = LocalCommandLineCodeExecutor(
 
 code_executor_agent = ConversableAgent(
     name="code_executor_agent",
-    llm_config=False,
+    llm_config=llm_config,
     code_execution_config={"executor": executor},
     human_input_mode="ALWAYS",
     default_auto_reply=
@@ -59,7 +59,7 @@ code_writer_agent = AssistantAgent(
     name="code_writer_agent",
     # system_message=code_writer_agent_system_message,
     llm_config=llm_config,
-    code_execution_config={"executor": executor},
+    # code_execution_config={"executor": executor},
     human_input_mode="NEVER",
 )
 
@@ -98,7 +98,7 @@ finance_agent = ConversableAgent(
 
 @code_writer_agent.register_for_execution()
 @finance_agent.register_for_llm(description="real estate listings in italy")
-def italianhousing(query: str):
+def italianhousing(query: str) -> str: 
     """get realestate listing in Italy
     Args :
         query (str) : a plain text question real estate listings in Italy 
@@ -106,12 +106,12 @@ def italianhousing(query: str):
         result (str) : a plain text list of real estate listings in Italy
     """
     result = retrieve_query(query)
-    return result
+    return result 
 
 
 @code_writer_agent.register_for_execution()
 @finance_agent.register_for_llm(description="Financial and market information")
-def openbb(query: str):
+def openbb(query: str) -> str:
     """get macroeconomic and real time market information
     Args :
         query (str) : a plain text question about markets or macroeconomics 
@@ -123,7 +123,7 @@ def openbb(query: str):
 
 @code_writer_agent.register_for_execution()
 @finance_agent.register_for_llm(description="Stock Prices market information")
-def get_stock_prices(stock_symbols: str, start_date: str, end_date: str) -> "pandas.DataFrame":
+def get_stock_prices(stock_symbols: str, start_date: str, end_date: str) -> "pd.DataFrame":
     """Get the stock prices for the given stock symbols between
     the start and end dates.
 

@@ -1,5 +1,7 @@
 langchain
 langchain-community
+langchain-openai
+langchainhub 
 azure-ai-documentintelligence
 unstructured[all-docs]
 langchain-chroma
