@@ -43,7 +43,7 @@ executor = LocalCommandLineCodeExecutor(
 
 # RetrieveUserProxyAgent instance named "ragproxyagent"
 ragproxyagent = RetrieveUserProxyAgent(
-    name="italian_realestate_listings",
+    name="italian_real_estate_listings",
     human_input_mode="NEVER",
     # max_consecutive_auto_reply=10,
     retrieve_config={
