@@ -71,14 +71,14 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
 
 ### Installation Instructions
 
->> STAR and FORK this Repository, then follow the instructions below exactly.
+>> 🌟STAR and 🍴FORK this Repository, then follow the instructions below exactly.
 
 1. **Clone the Repository**
 
    Clone the repository to a local machine:
 
    ```sh
-   git clone https://github.com/tonic/investinitaly
+   git clone https://github.com/Josephrp/EasyRealEstate
    cd investinitaly
    ```
 
