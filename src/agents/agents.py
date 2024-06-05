@@ -49,7 +49,7 @@ ragproxyagent = RetrieveUserProxyAgent(
     retrieve_config={
         "task": "default",
         "docs_path": "./src/sources/LISTINGS.csv",
-        "chunk_token_size": 1000,
+        "chunk_token_size": 1350,
         "model": "gpt-4o",
         "chunk_mode" : "one_line",
         "vector_db" : chroma_client,
