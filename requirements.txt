@@ -6,4 +6,5 @@ markdownify
 pandas
 einops
 openai
+openbb-agents
 # openbb[all]
