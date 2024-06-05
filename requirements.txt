@@ -6,7 +6,6 @@ markdownify
 pandas
 einops
 openai
-python-dotenv
 pypdf
 openbb-agents
 # openbb[all]
