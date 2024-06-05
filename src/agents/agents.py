@@ -19,7 +19,6 @@ from autogen.agentchat.contrib.retrieve_assistant_agent import RetrieveAssistant
 from autogen.agentchat.contrib.retrieve_user_proxy_agent import RetrieveUserProxyAgent
 import chromadb
 from typing import Annotated
-from src.config.config import load_env_file
 from pathlib import Path
 from dotenv import load_dotenv
 
