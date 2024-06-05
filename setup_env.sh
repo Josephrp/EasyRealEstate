@@ -1,3 +1,5 @@
+# setup_env.sh
+
 #!/bin/bash
 
 # Python version to use

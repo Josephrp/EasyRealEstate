@@ -1,3 +1,5 @@
+REM setup_env.bat
+
 @echo off
 
 REM Check if Python 3.11 is installed
@@ -15,5 +17,6 @@ call venv\Scripts\activate
 
 REM Install dependencies
 pip install -r requirements.txt
+
 
 echo Virtual environment setup complete.

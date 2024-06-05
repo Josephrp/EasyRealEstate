@@ -4,6 +4,17 @@ Positonic is a specialized agent that helps you find perfectly segmented real es
 
 ## Installation
 
+### Run Docker
+
+- install and run `Docker` if it's not already there on startup by [following these instructions](https://docs.docker.com/engine/install/)
+
+- add your user to the `Docker` user group by running this command :
+  - on Windows : 
+    - `net localgroup docker-users "your-user-id" /ADD`
+      your-user-id is your local Windows user name. You can determine this by looking at the folder name under C:\Users\ .
+  - on Linux : 
+    - [follow these instructions](https://docs.docker.com/engine/install/linux-postinstall/)
+
 ### Set your OpenAI API Key
 
 edit the `./src/config/config.py` file using a text editor and replace your api_key_here with your api key (keep the quotes!)
@@ -56,9 +67,24 @@ then edit the `./src/config/.env.example` file using a text editor and replace y
 
 Once activated, you should see the name of your virtual environment in the command prompt, indicating that you are now working within the virtual environment.
 
-3. **Installation Problems** 
 
-Sometimes installation can fail because of `openbb-agents`. If this happens , additionally install it using the following command : 
+3. **Run Chroma**
+
+Open a new terminal and run this command to start chroma :
+
+- ```chroma run --path ./src/memory/chromadb```
+
+4. **Run EasyRealEstate**
+
+```bash
+python main.py
+```
+
+### Installation Problems
+
+1. **OpenBB Agents** 
+
+Sometimes installation can fail because of `openbb-agents`. If this happens , you will see some red text on the steps above. Simply install it using the following command additionally: 
 
 ```bash
 pip install --no-cache-dir openbb-agents

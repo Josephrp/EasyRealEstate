@@ -1,48 +1,42 @@
 # main.py
 from src.config.config import llm_config
-import sys
-from src.agents.agents import planner , finance_agent , code_writer_agent , code_executor_agent, user_proxy
-from src.prompts.prompts import task
+from src.agents.agents import planner , finance_agent , user_proxy, ragproxyagent, real_estate_listing_agent
+from src.prompts.prompts import task, manager_system_message, intro_message
 import autogen
-from dotenv import load_dotenv
-import os
-from src.memory.mem import Upsert, retrieve_query
 from autogen.cache import Cache
-from src.memory.mem import load_env_file
+from autogen import GroupChatManager
+from src.config.config import load_env_file
+import os
+import sys
 
-# # Load environment variables from .env file using os library only
-# load_env_file('./src/config/.env')
-
-# # Ensure the OPENAI_API_KEY is set
-# if "OPENAI_API_KEY" not in os.environ:
-#     raise ValueError("OPENAI_API_KEY not found in environment variables.")
 
 def main():
     
-    # Initialize upsert to load data into ChromaDB
-    upsert_instance = Upsert(file_path='./src/sources/LISTINGS.xlsx')
-    # upsert_instance.upsert_documents()
+    load_env_file('./src/config/.env')
 
-    intro_message = "Speak to EasyRealEstate by stating your Italian real estate expectations. For example, the region, size of investment, and any other details: "
     user_input = input(intro_message)
     
     message = user_input + "\n\n" + task
     
     groupchat = autogen.GroupChat(
-        agents=[user_proxy, finance_agent, code_writer_agent, code_executor_agent, planner],
+        agents=[planner,  finance_agent , ragproxyagent, user_proxy , real_estate_listing_agent],
         messages=[],
         max_round=12,
+
+    allowed_or_disallowed_speaker_transitions={
+        planner: [user_proxy, ragproxyagent, finance_agent],
+        user_proxy: [finance_agent, ragproxyagent, planner],
+        ragproxyagent: [real_estate_listing_agent, planner, user_proxy],
+        real_estate_listing_agent: [ragproxyagent, user_proxy],
+        finance_agent: [ragproxyagent, planner],
+    },
+    speaker_transitions_type="allowed",
     )
     
-    manager = autogen.GroupChatManager(
-        groupchat=groupchat, llm_config=llm_config
-    )
+    manager = GroupChatManager(groupchat=groupchat, llm_config=llm_config, system_message=manager_system_message)
 
     with Cache.disk() as cache:    
-        groupchat_result = user_proxy.initiate_chat(
-            manager,
-            message=message,
-        )
+        groupchat_result = user_proxy.initiate_chat(manager, message=message,)
     
     # You can handle the groupchat_result here if needed
     print(groupchat_result)
