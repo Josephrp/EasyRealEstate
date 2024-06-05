@@ -1,9 +1,9 @@
 chromadb
-openbb-agents
 pyautogen
 python-dotenv
 xgboost
 markdownify
 pandas
 einops
-openaiopenbb[all]
+openai
+# openbb[all]

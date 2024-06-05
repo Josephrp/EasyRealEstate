@@ -15,15 +15,8 @@ Positonic is a specialized agent that helps you find perfectly segmented real es
   - on Linux : 
     - [follow these instructions](https://docs.docker.com/engine/install/linux-postinstall/)
 
-### Set your OpenAI API Key
 
-edit the `./src/config/config.py` file using a text editor and replace your api_key_here with your api key (keep the quotes!)
-
-`llm_config = {"model": "gpt-4-turbo", "api_key": "your_api_key_here" }`
-
-then edit the `./src/config/.env.example` file using a text editor and replace your api_key_here with your api key (no quotes) !
-
-### Usage Instructions
+### Installation Instructions
 
 1. **Clone the Repository**
 
@@ -33,6 +26,18 @@ then edit the `./src/config/.env.example` file using a text editor and replace y
    git clone https://github.com/tonic/investinitaly
    cd investinitaly
    ```
+
+2. **Set your OpenAI API Key**
+
+- edit the `./src/config/config.py` file using a text editor and replace your api_key_here with your api key (keep the quotes!)
+
+  `llm_config = {"model": "gpt-4-turbo", "api_key": "your_api_key_here" }`
+
+- then edit the `./src/config/.env.example` file using a text editor and replace your api_key_here with your api key also !
+
+- Get your openbb PAT from https://my.openbb.co/app/platform/pat and also add it to the `.env.example` file
+
+- save the `.env.example` file as `.env`in the same folder
 
 2. **Set Up the Environment**
 

@@ -8,26 +8,38 @@ from src.prompts.prompts import finance_agent_system_message, planner_system_mes
 from autogen.cache import Cache
 # import openbb
 from openbb_agents.agent import openbb_agent
-import os
-from dotenv import load_dotenv
+# import os
+# from dotenv import load_dotenv
 # from src.memory.mem import Upsert, Retriever
 from autogen.cache import Cache
 from src.config.config import llm_config
 import chromadb
-import pandas as pd
+# import pandas as pd
 from autogen.agentchat.contrib.retrieve_assistant_agent import RetrieveAssistantAgent
 from autogen.agentchat.contrib.retrieve_user_proxy_agent import RetrieveUserProxyAgent
 import chromadb
+from typing import Annotated
+from src.config.config import load_env_file
 
 
-chroma_client = chromadb.HttpClient(host='localhost', port=8000, database="./src/memory")
+load_env_file('./src/config/.env')
 
-# RetrieveAssistantAgent instance named "assistant"
-real_estate_listing_agent = RetrieveAssistantAgent(
-    name="real_estate_listing_agent", 
-    system_message=retrieve_assistant_system_message,
-    llm_config=llm_config,
+chroma_client = chromadb.HttpClient(host='localhost', port=8000)
+
+
+executor = LocalCommandLineCodeExecutor(
+    timeout=3600,
+    work_dir="./src/codex",
+    # functions=[italianhousing, openbb, get_stock_prices, plot_stock_prices],
 )
+
+
+# # RetrieveAssistantAgent instance named "assistant"
+# real_estate_listing_agent = RetrieveAssistantAgent(
+#     name="real_estate_listing_agent", 
+#     system_message=retrieve_assistant_system_message,
+#     llm_config=llm_config,
+# )
 
 # RetrieveUserProxyAgent instance named "ragproxyagent"
 ragproxyagent = RetrieveUserProxyAgent(
@@ -35,14 +47,17 @@ ragproxyagent = RetrieveUserProxyAgent(
     human_input_mode="NEVER",
     # max_consecutive_auto_reply=10,
     retrieve_config={
-    #     # "task": "qa",
-        "docs_path": "./src/sources/LISTINGS.xlsx",
-    #     "chunk_token_size": 2000,
-    #     "model": "gpt-4",
-        "client": chroma_client,
+        "task": "default",
+        "docs_path": "./src/sources/LISTINGS.csv",
+        "chunk_token_size": 1000,
+        "model": "gpt-4o",
+        "chunk_mode" : "one_line",
+        "vector_db" : chroma_client,
+        # "client": chroma_client,
         "embedding_model": "all-mpnet-base-v2",
         "collection_name": "italianrealestate",
-        "get_or_create": True,  # set to False if you don't want to reuse an existing collection, but you'll need to remove the collection manually
+        "get_or_create": True,
+        # "overwrite" : True,
     },
 )
 
@@ -50,9 +65,10 @@ user_proxy = ConversableAgent(
     name="Admin",
     system_message="Give the task, and send "
     "instructions to planner to define the real-estate investment strategy",
-    code_execution_config=False,
+    # code_execution_config=False,
     llm_config=llm_config,
     human_input_mode="TERMINATE",
+    code_execution_config={"executor": executor},
 )
 
 planner = ConversableAgent(
@@ -63,12 +79,7 @@ planner = ConversableAgent(
     "After each step is done by others, check the progress and "
     "instruct the remaining steps",
     llm_config=llm_config,
-)
-
-executor = LocalCommandLineCodeExecutor(
-    timeout=3600,
-    work_dir="./src/codex",
-    # functions=[italianhousing, openbb, get_stock_prices, plot_stock_prices],
+    code_execution_config={"executor": executor},
 )
 
 
@@ -195,3 +206,22 @@ def openbb(query: str) -> str:
 #     plt.grid(True)
 #     plt.savefig(filename)
 
+
+@finance_agent.register_for_execution()
+@user_proxy.register_for_execution()
+@planner.register_for_execution()
+@finance_agent.register_for_llm(description="Italian Real Estate Listings")
+@planner.register_for_llm(description="Italian Real Estate Listings")
+@user_proxy.register_for_llm(description="Italian Real Estate Listings")
+def retrieve_content(
+    message: Annotated[ str, "Refined message which keeps the original meaning and can be used to retrieve content for code generation and question answering.",],    n_results: Annotated[int, "number of results"] = 5,) -> str:
+    ragproxyagent.n_results = n_results  # Set the number of results to be retrieved.
+    # Check if we need to update the context.
+    update_context_case1, update_context_case2 = ragproxyagent._check_update_context(message)
+    if (update_context_case1 or update_context_case2) and ragproxyagent.update_context:
+        ragproxyagent.problem = message if not hasattr(ragproxyagent, "problem") else ragproxyagent.problem
+        _, ret_msg = ragproxyagent._generate_retrieve_user_reply(message)
+    else:
+        _context = {"problem": message, "n_results": n_results}
+        ret_msg = ragproxyagent.message_generator(ragproxyagent, None, _context)
+    return ret_msg if ret_msg else message

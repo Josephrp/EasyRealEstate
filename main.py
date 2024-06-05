@@ -1,6 +1,7 @@
 # main.py
 from src.config.config import llm_config
-from src.agents.agents import planner , finance_agent , user_proxy, ragproxyagent, real_estate_listing_agent
+import src.agents.agents
+from src.agents.agents import planner , finance_agent , user_proxy, ragproxyagent, retrieve_content
 from src.prompts.prompts import task, manager_system_message, intro_message
 import autogen
 from autogen.cache import Cache
@@ -18,16 +19,23 @@ def main():
     
     message = user_input + "\n\n" + task
     
+    # for caller in [planner, finance_agent, user_proxy]:
+    #     d_retrieve_content = caller.register_for_llm(
+    #         description="retrieve content for code generation and question answering.", api_style="function"
+    #     )(retrieve_content)
+    # for executor in [planner, finance_agent, user_proxy]:
+    #     executor.register_for_execution()(d_retrieve_content)
+
     groupchat = autogen.GroupChat(
-        agents=[planner,  finance_agent , ragproxyagent, user_proxy , real_estate_listing_agent],
+        agents=[planner,  finance_agent , ragproxyagent, user_proxy],
         messages=[],
         max_round=12,
 
     allowed_or_disallowed_speaker_transitions={
         planner: [user_proxy, ragproxyagent, finance_agent],
         user_proxy: [finance_agent, ragproxyagent, planner],
-        ragproxyagent: [real_estate_listing_agent, planner, user_proxy],
-        real_estate_listing_agent: [ragproxyagent, user_proxy],
+        ragproxyagent: [finance_agent, planner, user_proxy],
+        # real_estate_listing_agent: [ragproxyagent, user_proxy],
         finance_agent: [ragproxyagent, planner],
     },
     speaker_transitions_type="allowed",
