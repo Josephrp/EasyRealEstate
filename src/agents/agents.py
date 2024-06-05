@@ -20,9 +20,11 @@ from autogen.agentchat.contrib.retrieve_user_proxy_agent import RetrieveUserProx
 import chromadb
 from typing import Annotated
 from src.config.config import load_env_file
+from pathlib import Path
+from dotenv import load_dotenv
 
-
-load_env_file('./src/config/.env')
+dotenv_path = Path('./src/config/.env')
+load_dotenv(dotenv_path=dotenv_path)
 
 chroma_client = chromadb.HttpClient(host='localhost', port=8000)
 

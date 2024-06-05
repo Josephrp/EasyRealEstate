@@ -2,7 +2,7 @@
 
 #!/bin/bash
 
-# Python version to use
+# Python version to use, as required by openbb-agents
 PYTHON_VERSION="3.11"
 
 # Check if Python $PYTHON_VERSION is installed
@@ -18,6 +18,6 @@ python$PYTHON_VERSION -m venv venv
 source venv/bin/activate
 
 # Install dependencies
-pip install -r requirements.txt
+pip$PYTHON_VERSION install -r requirements.txt
 
 echo "Virtual environment setup complete."

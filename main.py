@@ -6,14 +6,12 @@ from src.prompts.prompts import task, manager_system_message, intro_message
 import autogen
 from autogen.cache import Cache
 from autogen import GroupChatManager
-from src.config.config import load_env_file
-import os
-import sys
-
+from pathlib import Path
+from dotenv import load_dotenv
 
 def main():
-    
-    load_env_file('./src/config/.env')
+    dotenv_path = Path('./src/config/.env')
+    load_dotenv(dotenv_path=dotenv_path)
 
     user_input = input(intro_message)
     

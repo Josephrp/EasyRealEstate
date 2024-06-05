@@ -78,23 +78,25 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
    Clone the repository to a local machine:
 
    ```sh
-   git clone https://github.com/tonic/investinitaly
-   cd investinitaly
+   git clone https://github.com/tonic/EasyRealEstate
+   cd EasyRealEstate
    ```
 
-2. **Set your OpenAI API Key**
+2. Set Python version
 
-- edit the `./src/config/config.py` file using a text editor and replace your api_key_here with your api key (keep the quotes!)
+This software currently runs only with Python 3.11 version, as it's required by openbb-agents.
 
-  `llm_config = {"model": "gpt-4-turbo", "api_key": "your_api_key_here" }`
+On MacOS, you can use `brew install python@3.11`; use `python3.11 --version` to validate
 
-- then edit the `./src/config/.env.example` file using a text editor and replace your api_key_here with your api key also !
+3. **Set your OpenAI API Key**
+- `cp ./src/config/.env.example ./src/config/.env`
+- Grab the ChatGPT API key from https://platform.openai.com/settings/profile?tab=api-keys (create a new Secret Key)
+- Grab the OpenBB Personal Access Token (PAT) from https://my.openbb.co/app/platform/pat (start from https://my.openbb.co if it's the first time you use OpenBB)
+- Edit the `./src/config/.env` and set
+  - the OpenAI API key as `OPENAI_API_KEY`
+  - the OpenBB PAT as `OPENBB_PAT`
 
-- Get your openbb PAT from https://my.openbb.co/app/platform/pat and also add it to the `.env.example` file
-
-- save the `.env.example` file as `.env`in the same folder
-
-2. **Set Up the Environment**
+3. **Set Up the Environment**
 
    Run the setup script to create and activate the virtual environment, and install the dependencies:
 
@@ -107,48 +109,25 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
    - On macOS/Linux:
 
      ```bash
-     chmod +x setup_env.sh
      ./setup_env.sh
      ```
 
-   then
+At this point, you should see the name of your virtual environment in the command prompt, indicating that you are now working within the virtual environment.
 
-   - On Windows:
-
-      ```sh
-      venv\Scripts\activate
-      ```
-
-   - On macOS/Linux:
-
-      ```sh
-      source venv/bin/activate
-      ```
-
-Once activated, you should see the name of your virtual environment in the command prompt, indicating that you are now working within the virtual environment.
-
-3. **Run Chroma**
+4. **Run Chroma**
 
 Open a new terminal and run this command to start chroma :
 
-- ```chroma run --path ./src/memory/chromadb```
+```chroma run --path ./src/memory/chromadb```
 
-4. **Run EasyRealEstate**
+You should be able to see `Uvicorn running on http://localhost:8000 (Press CTRL+C to quit)` on your standard output.
+
+5. **Run EasyRealEstate**
 
 in your virtual environment activated terminal from step #2 :
 
 ```bash
-python main.py
-```
-
-### Installation Problems
-
-1. **OpenBB Agents** 
-
-Sometimes installation can fail because of `openbb-agents`. If this happens , you will see some red text on the steps above. Simply install it using the following command additionally: 
-
-```bash
-pip install --no-cache-dir openbb-agents
+python3.11 main.py
 ```
 
 ### Additional Configuration (Optional)
