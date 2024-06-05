@@ -100,9 +100,10 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
 
    - On Windows:
 
-     ```bash
+    ```bash
+
     .\setup_env.bat
-     ```
+    ```
 
    - On macOS/Linux:
 
