@@ -8,3 +8,4 @@ einops
 openai
 openbb-agents
 # openbb[all]
+# gradio

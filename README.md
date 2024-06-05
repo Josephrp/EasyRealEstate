@@ -101,7 +101,7 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
    - On Windows:
 
      ```bash
-     .\setup_env.bat
+    
      ```
 
    - On macOS/Linux:
@@ -161,6 +161,129 @@ To improve results you may want to increase the number of `conversation turns` t
         max_round=12, # <-- change this number !
       ...
 ```
+
+# Contributing
+
+Contributing to EasyRealEstate is a fantastic way to engage with the open source community, especially for those interested in real estate, investment tools, and AI technology. Tonic-AI encourages contributions of all types, including but not limited to new features, bug fixes, documentation improvements, and usage examples. Below are the steps to get started with contributing to the project.
+
+## Join the Community
+
+1. **Join Discord**: Become a member of the [Tonic-AI community on Discord](https://discord.gg/JCjd88GQ) to connect with other contributors and stay updated with the latest project news. Joining Discord helps you stay connected with community support and discussions.
+
+2. **Sign Up on Hosted GitLab**: The EasyRealEate source code is hosted on GitLab. Please sign up at [Tonic-AI GitLab](https://git.tonic-ai.com/positonic/EasyRealEstate/EasyRealEstate/) to gain access to the repository.
+
+## Contribution Process
+
+### Step 1: Open an Issue
+
+- Before contributing, search the project's issue tracker to ensure the problem you're encountering or the enhancement you're suggesting isn't already listed.
+- If it's something new, submit an issue describing the bug fix or enhancement you propose. Be as detailed as possible to assist others in understanding your intentions and the scope of the issue.
+
+### Step 2: Fork and Create a Branch
+
+- Clone your the repository to your local machine:
+  
+  ```sh
+  git clone https://git.tonic-ai.com/positonic/EasyRealEstate/EasyRealEstate.git
+  cd EasyRealEstate
+  ```
+
+- Create a new branch for your fix or feature. Naming your branch as `feature/<feature-name>` or `bugfix/<bug-name>` helps in identifying the purpose of your branch:
+
+  ```sh
+  git checkout -b feature/add-new-analysis
+  ```
+
+### Step 3: Make Changes
+
+- Implement your bug fix or feature following the coding guidelines provided in the repository.
+- Ensure that your code adheres to the existing style to keep the project consistent and maintainable.
+
+### Step 4: Test Your Changes
+
+- Add tests for your changes to ensure that your code works as intended and to prevent future regressions.
+- Run all the existing tests to make sure previous functionality isn’t broken:
+
+  ```bash
+  python -m unittest discover -s tests
+  ```
+
+### Step 5: Add Example Usage
+
+- Enhance the documentation or examples folder with example usage of new features or demonstrating how the bug has been fixed, allowing other users to understand and effectively use the changes.
+
+### Step opioid overdose symptoms6: Submit a Pull Request
+
+- Commit your changes with a meaningful commit message. This helps others to understand the purpose of the changes quickly:
+
+  ```sh
+  git commit -am "Add new financial analysis feature"
+  ```
+
+- Push your branch to your forked repository:
+
+  ```sh
+  git push origin feature/add-new-analysis
+  ```
+
+- Go to your forked repository on GitLab and click `Create merge request`. Target the main branch of the original repository when you make the pull request.
+- Provide a clear and detailed description of the pull request, linking back to any related issues.
+
+## Join Team Tonic
+
+Team Tonic and Tonic-AI are dedicated to building and enhancing technologies. By contributing to `EasyRealEstate`, you become a part of an innovative community that values collaboration and creativity. We appreciate your contributions and look forward to growing together!
+
+Join us and contribute to making `EasyRealEstate` the best tool for real estate investment analysis on the market!
+
+
+## 1 - Enhanced Financial Data Integration
+
+- **Objective**: Improve the accuracy and depth of financial data retrieval by fully integrating with OpenBB’s latest APIs.
+- **Actions**:
+  - Develop and implement new data connectors to fetch and process more comprehensive data from OpenBB.
+  - Ensure real-time financial data analysis capabilities are robust and provide actionable insights.
+
+## 2 - Interface Enhancement with Gradio
+
+- **Objective**: Enhance user interaction and accessibility through a Gradio-based interface that simplifies complex data.
+- **Actions**:
+  - Integrate Gradio to create a more interactive and user-friendly web interface.
+  - Provide users with real-time manipulation of data and parameters with immediate visual feedback.
+
+## 3 - Expansion of Property Listings
+
+- **Objective**: Broaden the scope of property listings to include more countries and providers, transforming EasyRealEstate into a truly global platform.
+- **Actions**:
+  - Establish partnerships with additional real estate data providers from different countries.
+  - Incorporate diverse property listings into the platform, ensuring a wide array of options for international investors.
+
+## 4 - Advanced Team Collaboration Features
+
+- **Objective**: Develop multi-team collaboration capabilities to support complex investment decisions involving multiple stakeholders.
+- **Actions**:
+  - Design and implement a graph logic system that facilitates effective communication and task management among different teams.
+  - Introduce features such as task assignment, progress tracking, and collaborative financial modeling.
+
+## 5 - Structured Output for Reporting
+
+- **Objective**: Automate the generation of structured reports in document format (e.g., Word) that summarize investment analysis and insights.
+- **Actions**:
+  - Develop functionality to convert analysis results into well-structured, professional Word documents.
+  - Implement templates and customization options to cater to various reporting needs and preferences.
+
+## 6 - Market Expansion to Brokers and Real Estate Promoters
+
+- **Objective**: Extend the market reach by directly targeting real estate brokers and promoters, providing them with powerful tools for property marketing and investment analysis.
+- **Actions**:
+  - Tailor marketing strategies to appeal to brokers and promoters.
+  - Adapt the platform to include features specifically designed for real estate professionals, such as lead generation and market trend analysis.
+
+## 7 - Establish as a Leading Global Platform for Investment Properties
+
+- **Objective**: Position EasyRealEstate as the premier global platform for real estate investment, known for its precision, reliability, and comprehensiveness.
+-  **Actions**:
+   - Enhance global brand recognition through strategic marketing and partnerships.
+   - Continuously innovate and update the platform to maintain a competitive edge and cater to international market dynamics.
 
 ### References
 
