@@ -54,6 +54,10 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
 
 ## Installation
 
+> please note that EasyRealEstate `runs ai models locally` , the first time you install it and run it , it can take much over an hour to start up based on your computing power!
+
+>> however subsequent deployments will take much less time !
+
 ### Run Docker
 
 - install and run `Docker` if it's not already there on startup by [following these instructions](https://docs.docker.com/engine/install/)
