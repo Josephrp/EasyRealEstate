@@ -149,6 +149,17 @@ Sometimes installation can fail because of `openbb-agents`. If this happens , yo
 pip install --no-cache-dir openbb-agents
 ```
 
+### Additional Configuration (Optional)
+
+To improve results you may want to increase the number of `conversation turns` the group chat takes. Simply edit `main.py`using an editor and increase the number here :
+
+```python
+    groupchat = autogen.GroupChat(
+      ...
+        max_round=12, # <-- change this number !
+      ...
+```
+
 ### References
 
 - Open BB Dev
