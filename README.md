@@ -35,7 +35,7 @@ EasyRealEstate offers several benefits:
 
 By incorporating these functionalities and objectives, EasyRealEstate stands out as a sophisticated tool that aligns with the needs of modern real estate investors, offering both high-level overviews and detailed financial insights.
 
-# How It Works
+## How It Works
 
 EasyRealEstate leverages a multi-agent AI system to provide advanced analysis and decision-making tools tailored for the real estate market in Italy. The application incorporates several specialized AI agents, including a planner, a finance agent, and a user proxy. These agents interact dynamically within a constructed group chat environment to process user inputs, manage tasks, and retrieve relevant content.
 
@@ -236,57 +236,60 @@ Team Tonic and Tonic-AI are dedicated to building and enhancing technologies. By
 
 Join us and contribute to making `EasyRealEstate` the best tool for real estate investment analysis on the market!
 
+## Roadmap
 
-## 1 - Enhanced Financial Data Integration
+The roadmap for EasyRealEstate outlines the strategic plan to enhance the capabilities and reach of the application, ensuring it remains at the forefront of real estate investment analysis tools. The planned upgrades and expansions are detailed below:
+
+### 1 - Enhanced Financial Data Integration
 
 - **Objective**: Improve the accuracy and depth of financial data retrieval by fully integrating with OpenBB’s latest APIs.
 - **Actions**:
   - Develop and implement new data connectors to fetch and process more comprehensive data from OpenBB.
   - Ensure real-time financial data analysis capabilities are robust and provide actionable insights.
 
-## 2 - Interface Enhancement with Gradio
+### 2 - Interface Enhancement with Gradio
 
 - **Objective**: Enhance user interaction and accessibility through a Gradio-based interface that simplifies complex data.
 - **Actions**:
   - Integrate Gradio to create a more interactive and user-friendly web interface.
   - Provide users with real-time manipulation of data and parameters with immediate visual feedback.
 
-## 3 - Expansion of Property Listings
+### 3 - Expansion of Property Listings
 
 - **Objective**: Broaden the scope of property listings to include more countries and providers, transforming EasyRealEstate into a truly global platform.
 - **Actions**:
   - Establish partnerships with additional real estate data providers from different countries.
   - Incorporate diverse property listings into the platform, ensuring a wide array of options for international investors.
 
-## 4 - Advanced Team Collaboration Features
+### 4 - Advanced Team Collaboration Features
 
 - **Objective**: Develop multi-team collaboration capabilities to support complex investment decisions involving multiple stakeholders.
 - **Actions**:
   - Design and implement a graph logic system that facilitates effective communication and task management among different teams.
   - Introduce features such as task assignment, progress tracking, and collaborative financial modeling.
 
-## 5 - Structured Output for Reporting
+### 5 - Structured Output for Reporting
 
 - **Objective**: Automate the generation of structured reports in document format (e.g., Word) that summarize investment analysis and insights.
 - **Actions**:
   - Develop functionality to convert analysis results into well-structured, professional Word documents.
   - Implement templates and customization options to cater to various reporting needs and preferences.
 
-## 6 - Market Expansion to Brokers and Real Estate Promoters
+### 6 - Market Expansion to Brokers and Real Estate Promoters
 
 - **Objective**: Extend the market reach by directly targeting real estate brokers and promoters, providing them with powerful tools for property marketing and investment analysis.
 - **Actions**:
   - Tailor marketing strategies to appeal to brokers and promoters.
   - Adapt the platform to include features specifically designed for real estate professionals, such as lead generation and market trend analysis.
 
-## 7 - Establish as a Leading Global Platform for Investment Properties
+### 7 - Establish as a Leading Global Platform for Investment Properties
 
 - **Objective**: Position EasyRealEstate as the premier global platform for real estate investment, known for its precision, reliability, and comprehensiveness.
 -  **Actions**:
    - Enhance global brand recognition through strategic marketing and partnerships.
    - Continuously innovate and update the platform to maintain a competitive edge and cater to international market dynamics.
 
-### References
+#### References
 
 - Open BB Dev
   - https://hackathon.openbb.dev/docs#/equity/equity_fundamental_metrics
