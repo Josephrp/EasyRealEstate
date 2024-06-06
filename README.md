@@ -79,7 +79,7 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
 
    ```sh
    git clone https://github.com/Josephrp/EasyRealEstate
-   cd investinitaly
+   cd EasyRealEstate
    ```
 
 2. **Set your OpenAI API Key**
