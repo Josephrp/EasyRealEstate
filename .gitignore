@@ -1,5 +1,3 @@
-notepad.py
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -66,7 +64,7 @@ db.sqlite3-journal
 memory
 chroma.sqlite3
 chroma.sqlite3-journal
-
+*.sqlite3
 
 # Flask stuff:
 instance/

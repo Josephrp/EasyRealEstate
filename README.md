@@ -2,6 +2,8 @@
 
 EasyRealEstate is a specialized application that helps you find perfectly segmented real estate deals and investment properties in Italy .
 
+[Join us on Discord for more](https://discord.gg/JCjd88GQ) 
+
 ## Why Use It
 
 EasyRealRealEstate is designed for anyone looking to invest in the Italian real estate market, whether you are a seasoned investor or new to property investment. It simplifies the complexity of financial and market analyses, providing insights that are typically only available to professional investment firms. This tool is particularly useful for:
@@ -40,7 +42,7 @@ By incorporating these functionalities and objectives, EasyRealEstate stands out
 EasyRealEstate leverages a multi-agent AI system to provide advanced analysis and decision-making tools tailored for the real estate market in Italy. The application incorporates several specialized AI agents, including a planner, a finance agent, and a user proxy. These agents interact dynamically within a constructed group chat environment to process user inputs, manage tasks, and retrieve relevant content.
 
 1. **User Interaction**: The user starts by entering their criteria or questions regarding real estate investments in Italy. This input initiates the group chat.
-   
+
 2. **Task Processing**: Each of the AI agents has a specific role:
    - **Planner**: Orchestrates the workflow and ensures that tasks are assigned appropriately among agents.
    - **Finance Agent**: Handles all financial modeling aspects, analyzing potential returns and financial metrics.
@@ -52,7 +54,16 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
 
 5. **Output Generation**: The final output includes a comprehensive analysis of potential investment opportunities aligned with the user's preferences and objectives.
 
+## Join the Community
+
+1. **Join Discord**: Become a member of the [Tonic-AI community on Discord](https://discord.gg/JCjd88GQ) to connect with other contributors and stay updated with the latest project news. Joining Discord helps you stay connected with community support and discussions.
+
+2. **Sign Up on Hosted GitLab**: The EasyRealEate source code is hosted on GitLab. Please sign up at [Tonic-AI GitLab](https://git.tonic-ai.com/positonic/EasyRealEstate/EasyRealEstate/) to gain access to the repository.
+
+
 ## Installation
+
+**🌟STAR and 🍴FORK this Repository, then follow the instructions below exactly.**
 
 > please note that EasyRealEstate `runs ai models locally` , the first time you install it and run it , it can take much over an hour to start up based on your computing power!
 
@@ -71,7 +82,7 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
 
 ### Installation Instructions
 
->> 🌟STAR and 🍴FORK this Repository, then follow the instructions below exactly.
+**🌟STAR and 🍴FORK this Repository, then follow the instructions below exactly.**
 
 1. **Clone the Repository**
 
@@ -84,35 +95,68 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
 
 2. **Set your OpenAI API Key**
 
-- edit the `./src/config/config.py` file using a text editor and replace your api_key_here with your api key (keep the quotes!)
+    currently we're providing two ways to plug in your llm:
 
-  `llm_config = {"model": "gpt-4-turbo", "api_key": "your_api_key_here" }`
+    **Using Open AI :**
+        - edit the `./src/config/config.py` file using a text editor and replace your api_key_here with your api key (keep the quotes!)
 
-- then edit the `./src/config/.env.example` file using a text editor and replace your api_key_here with your api key also !
+    ```python
+    llm_config = {"model": "gpt-4o", 
+                  "api_key": "your_api_key_here", 
+                  "max_tokens": 4000 , # change this according to your needs
+                  "temperature": 0.7, #change this according to your needs
+        }
+    ```
 
-- Get your openbb PAT from https://my.openbb.co/app/platform/pat and also add it to the `.env.example` file
+    **Using Azure:**
+        - edit the `./src/OAI_CONFIG_LIST.json.example` file using a text editor and save it as `OAI_CONFIG_LIST.json` (without the `.example`at the end !)
 
-- save the `.env.example` file as `.env`in the same folder
+    ```python
+    llm_config =     {
+            "model": "your_deployment_name_here", # mine is "tonicgpt"
+            "api_key": "your_api_key_here",
+            "base_url": "your_endpoint_url_here", # https://eastus2.api.cognitive.microsoft.com/
+            "api_type": "azure",
+            "api_version": "your_api_version_here", # eg "2024-02-01" for gpt-4o
+            "max_tokens": 1800 ,# change this according to your needs
+            "temperature": 0.7, #change this according to your needs
+      }
+    ```
 
-2. **Install**
+    **In both cases:**
+        - make sure you ["comment out"](https://www.datacamp.com/tutorial/python-block-comment) the method you are **not** using in `./src/config/config.py` !
 
-in the command line :
+3. **Set Your OpenBB Key Here**
 
-```sh poetry install```
+    - then edit the `./src/config/.env.example` file using a text editor and replace your api_key_here with your api key also !
 
-3. **Run Chroma**
+    - Get your openbb PAT from https://my.openbb.co/app/platform/pat and also add it to the `.env.example` file
 
-Open a new terminal and run this command to start chroma :
+    - save the `.env.example` file as `.env`in the same folder
 
-- ```chroma run --path ./src/memory/chromadb```
+4. **Install**
 
-4. **Run EasyRealEstate**
+    in the command line :
 
-in your virtual environment activated terminal from step #2 :
+    ```sh
+    poetry install
+    ```
 
-```bash
-poetry run python main.py
-```
+5. **Run Chroma**
+
+    - Open a new terminal and run this command to start chroma :
+
+     ```sh
+      chroma run --path ./src/memory/chromadb
+      ```
+
+6. **Run EasyRealEstate**
+
+    in your virtual environment activated terminal from step #2 :
+
+    ```sh
+    poetry run python main.py
+    ```
 
 ### Additional Configuration (Optional)
 
@@ -125,150 +169,9 @@ To improve results you may want to increase the number of `conversation turns` t
       ...
 ```
 
+
 ## Contributing
 
 Contributing to EasyRealEstate is a fantastic way to engage with the open source community, especially for those interested in real estate, investment tools, and AI technology. Tonic-AI encourages contributions of all types, including but not limited to new features, bug fixes, documentation improvements, and usage examples. Below are the steps to get started with contributing to the project.
 
-## Join the Community
-
-1. **Join Discord**: Become a member of the [Tonic-AI community on Discord](https://discord.gg/JCjd88GQ) to connect with other contributors and stay updated with the latest project news. Joining Discord helps you stay connected with community support and discussions.
-
-2. **Sign Up on Hosted GitLab**: The EasyRealEate source code is hosted on GitLab. Please sign up at [Tonic-AI GitLab](https://git.tonic-ai.com/positonic/EasyRealEstate/EasyRealEstate/) to gain access to the repository.
-
-## Contribution Process
-
-### Step 1: Open an Issue
-
-- Before contributing, search the project's issue tracker to ensure the problem you're encountering or the enhancement you're suggesting isn't already listed.
-- If it's something new, submit an issue describing the bug fix or enhancement you propose. Be as detailed as possible to assist others in understanding your intentions and the scope of the issue.
-
-### Step 2: Fork and Create a Branch
-
-- Clone your the repository to your local machine:
-  
-  ```sh
-  git clone https://git.tonic-ai.com/positonic/EasyRealEstate/EasyRealEstate.git
-  cd EasyRealEstate
-  ```
-
-- Create a new branch for your fix or feature. Naming your branch as `feature/<feature-name>` or `bugfix/<bug-name>` helps in identifying the purpose of your branch:
-
-  ```sh
-  git checkout -b feature/add-new-analysis
-  ```
-
-### Step 3: Make Changes
-
-- Implement your bug fix or feature following the coding guidelines provided in the repository.
-- Ensure that your code adheres to the existing style to keep the project consistent and maintainable.
-
-### Step 4: Test Your Changes
-
-- Add tests for your changes to ensure that your code works as intended and to prevent future regressions.
-- Run all the existing tests to make sure previous functionality isn’t broken:
-
-  ```bash
-  python -m unittest discover -s tests
-  ```
-
-### Step 5: Add Example Usage
-
-- Enhance the documentation or examples folder with example usage of new features or demonstrating how the bug has been fixed, allowing other users to understand and effectively use the changes.
-
-### Step opioid overdose symptoms6: Submit a Pull Request
-
-- Commit your changes with a meaningful commit message. This helps others to understand the purpose of the changes quickly:
-
-  ```sh
-  git commit -am "Add new financial analysis feature"
-  ```
-
-- Push your branch to your forked repository:
-
-  ```sh
-  git push origin feature/add-new-analysis
-  ```
-
-- Go to your forked repository on GitLab and click `Create merge request`. Target the main branch of the original repository when you make the pull request.
-- Provide a clear and detailed description of the pull request, linking back to any related issues.
-
-## Join Team Tonic
-
-Team Tonic and Tonic-AI are dedicated to building and enhancing technologies. By contributing to `EasyRealEstate`, you become a part of an innovative community that values collaboration and creativity. We appreciate your contributions and look forward to growing together!
-
-Join us and contribute to making `EasyRealEstate` the best tool for real estate investment analysis on the market!
-
-## Roadmap
-
-The roadmap for EasyRealEstate outlines the strategic plan to enhance the capabilities and reach of the application, ensuring it remains at the forefront of real estate investment analysis tools. The planned upgrades and expansions are detailed below:
-
-### 1 - Enhanced Financial Data Integration
-
-- **Objective**: Improve the accuracy and depth of financial data retrieval by fully integrating with OpenBB’s latest APIs.
-- **Actions**:
-  - Develop and implement new data connectors to fetch and process more comprehensive data from OpenBB.
-  - Ensure real-time financial data analysis capabilities are robust and provide actionable insights.
-
-### 2 - Interface Enhancement with Gradio
-
-- **Objective**: Enhance user interaction and accessibility through a Gradio-based interface that simplifies complex data.
-- **Actions**:
-  - Integrate Gradio to create a more interactive and user-friendly web interface.
-  - Provide users with real-time manipulation of data and parameters with immediate visual feedback.
-
-### 3 - Expansion of Property Listings
-
-- **Objective**: Broaden the scope of property listings to include more countries and providers, transforming EasyRealEstate into a truly global platform.
-- **Actions**:
-  - Establish partnerships with additional real estate data providers from different countries.
-  - Incorporate diverse property listings into the platform, ensuring a wide array of options for international investors.
-
-### 4 - Advanced Team Collaboration Features
-
-- **Objective**: Develop multi-team collaboration capabilities to support complex investment decisions involving multiple stakeholders.
-- **Actions**:
-  - Design and implement a graph logic system that facilitates effective communication and task management among different teams.
-  - Introduce features such as task assignment, progress tracking, and collaborative financial modeling.
-
-### 5 - Structured Output for Reporting
-
-- **Objective**: Automate the generation of structured reports in document format (e.g., Word) that summarize investment analysis and insights.
-- **Actions**:
-  - Develop functionality to convert analysis results into well-structured, professional Word documents.
-  - Implement templates and customization options to cater to various reporting needs and preferences.
-
-### 6 - Market Expansion to Brokers and Real Estate Promoters
-
-- **Objective**: Extend the market reach by directly targeting real estate brokers and promoters, providing them with powerful tools for property marketing and investment analysis.
-- **Actions**:
-  - Tailor marketing strategies to appeal to brokers and promoters.
-  - Adapt the platform to include features specifically designed for real estate professionals, such as lead generation and market trend analysis.
-
-### 7 - Establish as a Leading Global Platform for Investment Properties
-
-- **Objective**: Position EasyRealEstate as the premier global platform for real estate investment, known for its precision, reliability, and comprehensiveness.
--  **Actions**:
-   - Enhance global brand recognition through strategic marketing and partnerships.
-   - Continuously innovate and update the platform to maintain a competitive edge and cater to international market dynamics.
-
-#### References
-
-- Open BB Dev
-  - https://hackathon.openbb.dev/docs#/equity/equity_fundamental_metrics
-  - https://github.com/OpenBB-finance/openbb-agents
-  - https://github.com/OpenBB-finance/OpenBBTerminal
-
-- Digital Regulatory Reporting Master
-  - https://drive.google.com/drive/u/3/folders/1EvNruvaPFpjOw7RFXTngky_mYkmTixXz
-  - https://pypi.org/project/openbb/
-
-- Italian Villa Dataset
-  - https://docs.google.com/spreadsheets/d/1VZsiTju0C3As3CZrjBF7ciSSoMTqTe3TwjRlE6rkMC8/edit#gid=526569133
-
-- Structured Finance Hackathon
-  - https://structured-finance.notion.site/Toolkit-0c51802b71784a32b0293736d02bc77e
-  - https://structured-finance.notion.site/About-3ffbce1c93864a74a795c187f7019370
-  - https://structured-finance.notion.site/Challenges-Prizes-49e52746b9384a92a8a69112f4d65668
-
-- FinOS
-  - https://cdm.finos.org/docs/event-model/
+You too can contribute to EasyRealEstate by following the [CONTRIBUTING](CONTRIBUTING.md) guidelines. [Join us on Discord](https://discord.gg/JCjd88GQ).

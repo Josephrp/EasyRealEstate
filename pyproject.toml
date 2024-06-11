@@ -17,6 +17,8 @@ pandas = "^2.2.2"
 einops = "^0.8.0"
 openai = "^1.33.0"
 openbb-agents = "^0.0.4"
+openbb-core = "^1.2.4"
+openbb-seeking-alpha = "^1.2.2"
 
 
 [build-system]

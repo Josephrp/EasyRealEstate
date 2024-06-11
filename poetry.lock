@@ -3846,6 +3846,20 @@ openbb-core = ">=1.2.4,<2.0.0"
 xmltodict = ">=0.13.0,<0.14.0"
 
 [[package]]
+name = "openbb-seeking-alpha"
+version = "1.2.2"
+description = "Seeking Alpha extension for OpenBB"
+optional = false
+python-versions = "<4.0,>=3.8"
+files = [
+    {file = "openbb_seeking_alpha-1.2.2-py3-none-any.whl", hash = "sha256:732f59c43bc86052f9c9ce221b0fec30675b38477f3f8d4046ff5aa9d5407c60"},
+    {file = "openbb_seeking_alpha-1.2.2.tar.gz", hash = "sha256:6248763b3bdd4574a081ab323eb2ae8b8d8dd72fe9d445a53cc58e1165e5128b"},
+]
+
+[package.dependencies]
+openbb-core = ">=1.2.4,<2.0.0"
+
+[[package]]
 name = "openbb-tiingo"
 version = "1.2.2"
 description = "Tiingo extension for OpenBB"
@@ -7035,4 +7049,4 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11,<3.12"
-content-hash = "033a328376e0aa94d6a3060a85f8989416aa8ff7086d38f80295cf7da3834d78"
+content-hash = "5b7d2cb042e8becbabf5a7f7969070b9f93ad01f0abb3162f62b7ec60a0f2f5d"
