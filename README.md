@@ -94,39 +94,11 @@ EasyRealEstate leverages a multi-agent AI system to provide advanced analysis an
 
 - save the `.env.example` file as `.env`in the same folder
 
-2. **Set Up the Environment**
+2. **Install**
 
-   Run the setup script to create and activate the virtual environment, and install the dependencies:
+in the command line :
 
-   - On Windows:
-
-    ```bash
-
-    .\setup_env.bat
-    ```
-
-   - On macOS/Linux:
-
-     ```bash
-     chmod +x setup_env.sh
-     ./setup_env.sh
-     ```
-
-   then
-
-   - On Windows:
-
-      ```sh
-      venv\Scripts\activate
-      ```
-
-   - On macOS/Linux:
-
-      ```sh
-      source venv/bin/activate
-      ```
-
-Once activated, you should see the name of your virtual environment in the command prompt, indicating that you are now working within the virtual environment.
+```sh poetry install```
 
 3. **Run Chroma**
 
@@ -139,17 +111,7 @@ Open a new terminal and run this command to start chroma :
 in your virtual environment activated terminal from step #2 :
 
 ```bash
-python main.py
-```
-
-### Installation Problems
-
-1. **OpenBB Agents** 
-
-Sometimes installation can fail because of `openbb-agents`. If this happens , you will see some red text on the steps above. Simply install it using the following command additionally: 
-
-```bash
-pip install --no-cache-dir openbb-agents
+poetry run python main.py
 ```
 
 ### Additional Configuration (Optional)
@@ -163,7 +125,7 @@ To improve results you may want to increase the number of `conversation turns` t
       ...
 ```
 
-# Contributing
+## Contributing
 
 Contributing to EasyRealEstate is a fantastic way to engage with the open source community, especially for those interested in real estate, investment tools, and AI technology. Tonic-AI encourages contributions of all types, including but not limited to new features, bug fixes, documentation improvements, and usage examples. Below are the steps to get started with contributing to the project.
 
